@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -37,7 +38,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>React Google Login</h2>
       <br />
       <br />
@@ -49,12 +50,17 @@ function App() {
           <p>Email Address: {profile.email}</p>
           <br />
           <br />
-          <button onClick={logOut}>Log out</button>
+          <button className="logout" onClick={logOut}>
+            Log out
+          </button>
         </div>
       ) : (
-        <button onClick={() => login()}>Sign in with Google 🚀 </button>
+        <button className="login" onClick={() => login()}>
+          Sign in with Google 🚀{" "}
+        </button>
       )}
     </div>
   );
 }
+
 export default App;
